@@ -1,10 +1,8 @@
 import gym
 import numpy as np
-import math
 import random
 from collections import defaultdict
 import time
-
 
 Q=defaultdict(float)
 gamma=1 #dicount factor
@@ -37,9 +35,6 @@ def act(ob):
     return actions_with_max_q[index]
 
 ob=env.reset()
-#rewards=[]
-#reward=0.0
-#print(Q[tuple(ob),tuple([7,8,True])])
 
 start_time = time.time()
 
@@ -47,10 +42,7 @@ for step in range(n_steps):
     a = act(tuple(ob))
     ob_next, r, done, end = env.step(a)
     update_Q(tuple(ob), r, a, tuple(ob_next), done)
-    #reward += r
     if done:
-        #rewards.append(reward)
-        #reward = 0.0
         ob = env.reset()
         if end:
             print(step)
@@ -59,3 +51,5 @@ for step in range(n_steps):
         ob = ob_next
 
 print("--- %s seconds ---" % (time.time() - start_time))
+
+np.save('q_policy.npy', Q)
