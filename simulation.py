@@ -2,21 +2,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 mass=192
 
-
-"""
-plt.plot(epoch_list, L1, label='worker1')
-plt.plot(epoch_list, L2, label='worker2')
-plt.plot(epoch_list, L3, label='worker3')
-
-plt.xlabel('epoch')
-plt.ylabel('loss')
-
-plt.legend()
-
-plt.show()
-
-"""
-
 i=0
 j=0
 k=0
